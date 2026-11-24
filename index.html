@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0e0d16">
+<title>FeraGPT | AI Assistant</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+
+:root{
+ --bg:#0e0d16;
+ --panel:#171521;
+ --white:#f4f0f5;
+ --muted:#a69caf;
+ --purple:#a879ff;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;background:var(--bg);color:var(--white);
+ font-family:Vazirmatn,sans-serif;
+}
+button,input{font:inherit}
+.app{max-width:1100px;margin:auto;padding:18px}
+header{
+ display:flex;align-items:center;justify-content:space-between;
+ padding:12px 3px 22px;border-bottom:1px solid #282432;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+ width:49px;height:49px;border-radius:16px;
+ background:linear-gradient(145deg,#b38aff,#7540d5);
+ display:grid;place-items:center;
+ color:white;font-size:29px;font-weight:800;
+ box-shadow:0 0 24px #9565ff55;
+}
+.brand h1{font-size:23px;margin:0;direction:ltr}
+.brand small{font-size:10px;color:#b99aff;letter-spacing:1px}
+.status{font-size:12px;color:#42d69a}
+.hero{text-align:center;padding:36px 5px 25px}
+.hero h2{font-size:clamp(24px,5vw,35px);margin:0 0 8px}
+.hero h2 span{color:var(--purple)}
+.hero p{color:var(--muted);font-size:14px;margin:0}
+.grid{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:14px;margin:22px 0;
+}
+.card{
+ height:185px;border:0;border-radius:30px;
+ padding:23px 21px;text-align:right;color:var(--white);
+ cursor:pointer;position:relative;overflow:hidden;
+ transition:transform .2s,filter .2s;
+}
+.card:active{transform:scale(.97)}
+.card:hover{filter:brightness(1.13)}
+.card svg{
+ width:65px;height:65px;display:block;
+ margin-bottom:13px;
+ stroke:var(--accent);fill:none;
+ stroke-width:2.5;stroke-linecap:round;
+ stroke-linejoin:round;
+}
+.card h3{font-size:20px;font-weight:700;margin:0 0 32px}
+.card p{font-size:15px;color:#b7aabb;margin:0}
+.green{background:#102a23;--accent:#29b98b}
+.gold{background:#302315;--accent:#e39a00}
+.yellow{background:#302516;--accent:#e3ae17}
+.pink{background:#301a29;--accent:#e66b83}
+.purple{background:#2c1d36;--accent:#bb91ed}
+.blue{background:#142b34;--accent:#23bdd0}
+.cyan{background:#182b36;--accent:#42c4df}
+.orange{background:#33231d;--accent:#f18b53}
+.chat{
+ background:var(--panel);border:1px solid #302a3a;
+ border-radius:25px;padding:17px;margin-top:30px;
+}
+.chathead{display:flex;justify-content:space-between;align-items:center}
+.chathead h3{margin:0;font-size:17px}
+.chathead span{font-size:11px;color:#b48cff}
+.messages{
+ height:190px;overflow-y:auto;padding:15px 0;
+ display:flex;flex-direction:column;gap:12px;
+}
+.msg{
+ max-width:90%;padding:12px 15px;border-radius:17px;
+ font-size:14px;line-height:2;white-space:pre-wrap;
+ overflow-wrap:anywhere;
+}
+.user{background:#3a285b;align-self:flex-start}
+.bot{background:#25202f;align-self:flex-end}
+.composer{
+ display:flex;gap:9px;background:#100e17;
+ border:1px solid #41344f;border-radius:17px;padding:8px;
+}
+.composer input{
+ flex:1;min-width:0;background:transparent;
+ border:0;outline:0;color:white;padding:9px;
+}
+.send{
+ width:45px;height:45px;border:0;border-radius:12px;
+ background:#9565ff;color:white;font-size:20px;
+}
+footer{text-align:center;color:#777080;font-size:12px;padding:25px}
+@media(min-width:700px){
+ .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .card{height:205px;padding:25px}
+}
+@media(max-width:350px){
+ .app{padding:11px}
+ .card{height:170px;padding:16px}
+ .card h3{font-size:17px}
+ .card p{font-size:13px}
+ .card svg{width:55px;height:55px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<header>
+ <div class="brand">
+  <div class="logo">F</div>
+  <div>
+   <h1>FeraGPT</h1>
+   <small>INTELLIGENCE REDEFINED</small>
+  </div>
+ </div>
+ <div class="status">● آنلاین</div>
+</header>
+
+<section class="hero">
+ <h2>به دنیای <span>FeraGPT</span> خوش آمدی</h2>
+ <p>هوشمندتر فکر کن، سریع‌تر خلق کن.</p>
+</section>
+
+<section class="grid">
+
+<div class="card green" onclick="suggest('در زمینه هوش مصنوعی کمکم کن')">
+ <svg viewBox="0 0 64 64">
+  <path d="M27 13c-9-8-20 1-17 11-8 7-5 19 2 21-2 10 10 15 17 8V13z"/>
+  <path d="M37 13c9-8 20 1 17 11 8 7 5 19-2 21 2 10-10 15-17 8V13z"/>
+  <path d="M20 25c-6 0-8 7-3 10m4 8c-6 0-7 7-2 9m25-27c6 0 8 7 3 10m-4 8c6 0 7 7 2 9M32 9v47m0-34h10m-10 13h12"/>
+  <path d="M42 22h8m-8 13h10"/>
+ </svg>
+ <h3>هوش مصنوعی</h3><p>سبز نئونی</p>
+</div>
+
+<div class="card gold" onclick="suggest('در زمینه سرور بازی راهنمایی کن')">
+ <svg viewBox="0 0 64 64">
+  <path d="M16 17h32c6 0 9 4 11 11l4 17c1 7-6 11-11 6L42 41H22L12 51C7 56 0 52 1 45l4-17c2-7 5-11 11-11z" transform="translate(1 0)"/>
+  <path d="M19 26v14m-7-7h14m19-3h.1m8 8h.1"/>
+ </svg>
+ <h3>سرور بازی</h3><p>نارنجی طلایی</p>
+</div>
+
+<div class="card yellow" onclick="suggest('می‌خواهم یک فایل را تحلیل کنم')">
+ <svg viewBox="0 0 64 64">
+  <path d="M17 7h21l14 14v35H17a6 6 0 0 1-6-6V13a6 6 0 0 1 6-6z"/>
+  <path d="M37 7v16h15M22 34h22M22 43h16"/>
+ </svg>
+ <h3>تحلیل فایل</h3><p>طلایی</p>
+</div>
+
+<div class="card pink" onclick="suggest('می‌خواهم یک تصویر را تحلیل کنم')">
+ <svg viewBox="0 0 64 64">
+  <rect x="7" y="7" width="50" height="50" rx="7"/>
+  <circle cx="41" cy="23" r="5"/>
+  <path d="M9 44l13-13 10 10 6-6 17 17"/>
+ </svg>
+ <h3>تحلیل تصاویر</h3><p>صورتی</p>
+</div>
+
+<div class="card purple" onclick="suggest('برایم کد برنامه نویسی بنویس')">
+ <svg viewBox="0 0 64 64">
+  <path d="M23 17L8 32l15 15M41 17l15 15-15 15M36 12L28 52"/>
+ </svg>
+ <h3>برنامه‌نویسی</h3><p>بنفش یاسی</p>
+</div>
+
+<div class="card blue" onclick="suggest('برایم یک وب سایت طراحی کن')">
+ <svg viewBox="0 0 64 64">
+  <rect x="5" y="8" width="54" height="39" rx="5"/>
+  <path d="M5 19h54M15 14h.1m7 0h.1m-4 34v7m-9 0h28"/>
+  <path d="M18 31h28M18 38h19"/>
+ </svg>
+ <h3>طراحی سایت</h3><p>آبی الکتریکی</p>
+</div>
+
+<div class="card cyan" onclick="suggest('یک موضوع را برایم جستجو کن')">
+ <svg viewBox="0 0 64 64">
+  <circle cx="27" cy="27" r="18"/>
+  <path d="M40 40l16 16"/>
+ </svg>
+ <h3>جست‌وجو</h3><p>فیروزه‌ای</p>
+</div>
+
+<div class="card orange" onclick="suggest('این متن را برایم ترجمه کن')">
+ <svg viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="25"/>
+  <path d="M7 32h50M32 7c13 13 13 37 0 50M32 7c-13 13-13 37 0 50M13 19h38M13 45h38"/>
+ </svg>
+ <h3>ترجمه زبان</h3><p>نارنجی</p>
+</div>
+
+</section>
+
+<section class="chat" id="chat">
+ <div class="chathead">
+  <h3>✦ گفت‌وگو با FeraGPT</h3>
+  <span>AI ASSISTANT</span>
+ </div>
+ <div class="messages" id="messages">
+  <div class="msg bot">سلام! من FeraGPT هستم. چطور می‌تونم کمکت کنم؟ ✨</div>
+ </div>
+ <form class="composer" id="form">
+  <input id="prompt" placeholder="پیامت رو بنویس..." autocomplete="off">
+  <button class="send" type="submit">➤</button>
+ </form>
+</section>
+
+<footer>FeraGPT © 2026 | Made for the future</footer>
+</div>
+
+<script>
+const API="https://feragpt.onrender.com";
+const messages=document.getElementById("messages");
+const input=document.getElementById("prompt");
+
+function addMessage(text,type){
+ const el=document.createElement("div");
+ el.className="msg "+type;
+ el.textContent=text;
+ messages.appendChild(el);
+ messages.scrollTop=messages.scrollHeight;
+ return el;
+}
+function suggest(text){
+ input.value=text;
+ input.focus();
+ document.getElementById("chat").scrollIntoView({behavior:"smooth"});
+}
+document.getElementById("form").addEventListener("submit",async e=>{
+ e.preventDefault();
+ const message=input.value.trim();
+ if(!message)return;
+ input.value="";
+ addMessage(message,"user");
+ const loading=addMessage("در حال دریافت پاسخ...","bot");
+ try{
+  const response=await fetch(API+"/chat",{
+   method:"POST",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({message})
+  });
+  if(!response.ok)throw new Error("Request failed");
+  const data=await response.json();
+  loading.textContent=data.reply||data.response||data.message||"پاسخی دریافت نشد.";
+ }catch(error){
+  loading.textContent="اتصال موتور هوش مصنوعی هنوز تکمیل نشده است. این مرحله را در ادامه راه‌اندازی می‌کنیم.";
+ }
+});
+</script>
+</body>
+  </html>
+  
